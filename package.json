@@ -40,8 +40,8 @@
   "scripts": {
     "lint": "eslint index.js lib/ tests/ examples/",
     "test": "npm run-script lint -s && npm run-script test-cov -s",
-    "test-only": "mocha --bail --check-leaks tests/",
-    "test-cov": "nyc mocha --bail --check-leaks tests/"
+    "test-only": "mocha --check-leaks --recursive tests/",
+    "test-cov": "nyc --check-coverage --lines=80 --functions=80 --branches=80 --statements=80 mocha --check-leaks --recursive tests/"
   },
   "nyc": {
     "all": true,
@@ -52,7 +52,13 @@
       "lcov",
       "text",
       "text-summary"
-    ]
+    ],
+    "watermarks": {
+      "lines": [80, 90],
+      "functions": [80, 90],
+      "branches": [80, 90],
+      "statements": [80, 90]
+    }
   },
   "dependencies": {
     "uuid": "^3.0.0"

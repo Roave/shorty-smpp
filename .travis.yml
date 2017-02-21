@@ -13,4 +13,4 @@ before_install:
   - "test ! -d node_modules || npm prune"
   - "test ! -d node_modules || npm rebuild"
 after_script:
-  - if [ $TRAVIS_NODE_VERSION = '6' ]; then npm install -g coveralls; cat ./coverage/lcov.info | coveralls; fi
+  - if [ $TRAVIS_NODE_VERSION = '6' ]; then npm install -g coveralls && cat ./coverage/lcov.info | coveralls; fi
