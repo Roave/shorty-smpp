@@ -1,0 +1,60 @@
+{
+  "name": "shorty-smpp",
+  "version": "0.0.1",
+  "description": "SMPP v5.0 protocol implementation for node.js",
+  "keywords": [
+    "smpp",
+    "sms"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Roave/shorty-smpp.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Roave/shorty-smpp/issues"
+  },
+  "directories": {
+    "example": "./examples",
+    "lib": "./lib"
+  },
+  "author": {
+    "name": "Aleksei Khudiakov",
+    "url": "https://github.com/Xerkus"
+  },
+  "maintainers": [
+  ],
+  "contributors": [
+  ],
+  "engines": {
+    "node": ">=6.0"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "eslint": "^3.16.0",
+    "eslint-config-airbnb-base": "^11.1.0",
+    "eslint-plugin-import": "^2.2.0",
+    "mocha": "^3.2.0",
+    "nyc": "^10.1.2"
+  },
+  "scripts": {
+    "lint": "eslint index.js lib/ tests/ examples/",
+    "test": "npm run-script lint -s && npm run-script test-cov -s",
+    "test-only": "mocha --bail --check-leaks tests/",
+    "test-cov": "nyc mocha --bail --check-leaks tests/"
+  },
+  "nyc": {
+    "all": true,
+    "include": [
+      "lib/**/*.js"
+    ],
+    "reporter": [
+      "lcov",
+      "text",
+      "text-summary"
+    ]
+  },
+  "dependencies": {
+    "uuid": "^3.0.0"
+  }
+}
