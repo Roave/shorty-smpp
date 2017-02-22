@@ -80,5 +80,10 @@ describe('definitions/tlv', () => {
                 expect(key).to.be.oneOf([tlvEntry.tag, tlvEntry.name]);
             });
         });
+
+        it('Default set of TLVs must be immutable', () => {
+            expect(() => tlv.defaults.defineTlv(0x1400, 'test_tlv')).to.throw(/immutable/);
+            expect(() => tlv.defaults.removeTlv(0x0005)).to.throw(/immutable/);
+        });
     });
 });
